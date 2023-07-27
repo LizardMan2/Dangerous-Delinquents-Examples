@@ -27,7 +27,6 @@ position = Vector2(1248, 352)
 
 [node name="Button_Lever" parent="." instance=ExtResource("4_ct38h")]
 position = Vector2(736, 608)
-isLever = true
 
 [node name="Button_Lever2" parent="." instance=ExtResource("4_ct38h")]
 position = Vector2(1056, 608)
