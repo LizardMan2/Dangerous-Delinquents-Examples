@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://bppqt14wegvdk"]
+
+[ext_resource type="Texture2D" uid="uid://docpgcwcnt3n0" path="res://Assets/icon.svg" id="1_3enbu"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_gegb2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_465eu"]
+radius = 5.4
+height = 12.8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1x67"]
+size = Vector2(52, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nu36"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_maj4u"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hoxq"]
+
+[node name="Player" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("respawnLocation")]
+script = ExtResource("1_gegb2")
+respawnLocation = NodePath("../RespawnLocation")
+JUMP_VELOCITY = -500.0
+
+[node name="Icon" type="Sprite2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3enbu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(5, 5)
+shape = SubResource("CapsuleShape2D_465eu")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="Spike Collider" type="Area2D" parent="Player"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Spike Collider"]
+shape = SubResource("RectangleShape2D_d1x67")
+
+[node name="CP Collider" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CP Collider"]
+shape = SubResource("RectangleShape2D_2nu36")
+
+[node name="Interaction Collider" type="Area2D" parent="Player"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Interaction Collider"]
+shape = SubResource("RectangleShape2D_maj4u")
+
+[node name="RespawnLocation" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RespawnLocation"]
+shape = SubResource("RectangleShape2D_2hoxq")
+
+[connection signal="body_shape_entered" from="Player/Spike Collider" to="Player" method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Player/Spike Collider" to="Player" method="_on_area_2d_body_shape_exited"]
+[connection signal="area_entered" from="Player/CP Collider" to="Player" method="_on_cp_collider_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ch6oebv56qr4e"]
+[gd_scene load_steps=9 format=3 uid="uid://ch6oebv56qr4e"]
 
 [ext_resource type="PackedScene" uid="uid://dpbd7qbnkf00u" path="res://Objects/TileMap.tscn" id="1_n4dyn"]
 [ext_resource type="PackedScene" uid="uid://bppqt14wegvdk" path="res://Objects/Player.tscn" id="2_yjg0e"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2ywnj8sryww2" path="res://Objects/Door.tscn" id="5_bfdy4"]
 [ext_resource type="PackedScene" uid="uid://coyhr8getbfdp" path="res://Objects/Collectable.tscn" id="6_d8yoh"]
 [ext_resource type="PackedScene" uid="uid://byrbxv8jpf04d" path="res://Objects/Transition.tscn" id="7_onlhb"]
+[ext_resource type="PackedScene" uid="uid://dwvdfow6qag47" path="res://Objects/Camera_UI.tscn" id="8_nwjkl"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,6 +28,7 @@ position = Vector2(1248, 352)
 
 [node name="Button_Lever" parent="." instance=ExtResource("4_ct38h")]
 position = Vector2(736, 608)
+isLever = true
 
 [node name="Button_Lever2" parent="." instance=ExtResource("4_ct38h")]
 position = Vector2(1056, 608)
@@ -59,3 +61,5 @@ position = Vector2(1632, 352)
 [node name="Transition" parent="." instance=ExtResource("7_onlhb")]
 position = Vector2(1728, 352)
 goTo = "res://Levels/TestPuzzle.tscn"
+
+[node name="Camera_UI" parent="." instance=ExtResource("8_nwjkl")]

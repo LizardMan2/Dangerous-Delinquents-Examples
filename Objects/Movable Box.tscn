@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dv86um48t5t2f"]
 
-[ext_resource type="Script" path="res://Objects/Movable Box.gd" id="1_huk4a"]
+[ext_resource type="Script" path="res://Scripts/Movable Box.gd" id="1_huk4a"]
 [ext_resource type="Texture2D" uid="uid://clpnrv4dkiaq5" path="res://Assets/Box.png" id="1_mlwbb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rv10b"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwvdfow6qag47"]
+
+[ext_resource type="Script" path="res://Scripts/Camera_UI.gd" id="1_783vs"]
+
+[node name="Camera_UI" type="CanvasLayer"]
+script = ExtResource("1_783vs")
+
+[node name="HackMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="godmode" type="Button" parent="HackMenu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -72.0
+offset_right = 232.0
+offset_bottom = -24.0
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 10
+focus_mode = 1
+toggle_mode = true
+text = "GOD MODE"
+
+[node name="noclip" type="Button" parent="HackMenu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -136.0
+offset_right = 232.0
+offset_bottom = -88.0
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 10
+focus_mode = 1
+toggle_mode = true
+text = "NOCLIP"
+
+[node name="fly" type="Button" parent="HackMenu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -200.0
+offset_right = 232.0
+offset_bottom = -152.0
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 10
+focus_mode = 1
+toggle_mode = true
+text = "FLY"
+
+[connection signal="toggled" from="HackMenu/godmode" to="." method="_on_godmode_toggled"]
+[connection signal="toggled" from="HackMenu/noclip" to="." method="_on_noclip_toggled"]
+[connection signal="toggled" from="HackMenu/fly" to="." method="_on_fly_toggled"]
