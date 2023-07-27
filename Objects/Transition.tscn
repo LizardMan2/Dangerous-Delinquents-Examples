@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://byrbxv8jpf04d"]
+
+[ext_resource type="Script" path="res://Scripts/Transition.gd" id="1_gc2af"]
+[ext_resource type="Texture2D" uid="uid://docpgcwcnt3n0" path="res://Assets/icon.svg" id="2_aq2t8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85fb0"]
+size = Vector2(64, 64)
+
+[node name="Transition" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_gc2af")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_85fb0")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aq2t8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
