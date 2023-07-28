@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bppqt14wegvdk"]
+[gd_scene load_steps=9 format=3 uid="uid://bppqt14wegvdk"]
 
 [ext_resource type="Texture2D" uid="uid://docpgcwcnt3n0" path="res://Assets/icon.svg" id="1_3enbu"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_gegb2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_465eu"]
 radius = 5.4
-height = 12.8
+height = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1x67"]
 size = Vector2(52, 64)
@@ -14,6 +14,9 @@ size = Vector2(52, 64)
 size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_maj4u"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ei8u"]
 size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hoxq"]
@@ -56,6 +59,13 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Interaction Collider"]
 shape = SubResource("RectangleShape2D_maj4u")
+
+[node name="BoxCollider" type="Area2D" parent="Player"]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/BoxCollider"]
+shape = SubResource("RectangleShape2D_7ei8u")
 
 [node name="RespawnLocation" type="Area2D" parent="."]
 collision_layer = 8

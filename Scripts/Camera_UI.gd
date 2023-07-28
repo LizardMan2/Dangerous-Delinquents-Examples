@@ -9,8 +9,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_released("console"):
-		$HackMenu.visible = !$HackMenu.visible
+	$HackMenu.visible = GlobalCollectables.console
+
 
 
 func _on_fly_toggled(button_pressed):

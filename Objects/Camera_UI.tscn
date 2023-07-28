@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwvdfow6qag47"]
+[gd_scene load_steps=4 format=3 uid="uid://dwvdfow6qag47"]
 
 [ext_resource type="Script" path="res://Scripts/Camera_UI.gd" id="1_783vs"]
+[ext_resource type="Shader" uid="uid://dtbptrvcnh214" path="res://Objects/Camera_UI.tres" id="2_08e6f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_weafr"]
+shader = ExtResource("2_08e6f")
 
 [node name="Camera_UI" type="CanvasLayer"]
 script = ExtResource("1_783vs")
@@ -61,6 +65,17 @@ size_flags_vertical = 10
 focus_mode = 1
 toggle_mode = true
 text = "FLY"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_weafr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="toggled" from="HackMenu/godmode" to="." method="_on_godmode_toggled"]
 [connection signal="toggled" from="HackMenu/noclip" to="." method="_on_noclip_toggled"]

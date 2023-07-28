@@ -5,18 +5,19 @@ class_name Inputs
 @export var isOn = false #Make true if you want a lever on by default
 
 var colliding = false
+var playerCollide = false
 
 
 func _process(delta):
-	if isLever: #Lever Logic
+	if isLever and !GlobalCollectables.noclip: #Lever Logic
 		if colliding and Input.is_action_just_released("interact"):
 			if isOn:
 				isOn = false
 			else:
 				isOn = true
 			
-	else:       #Button Logic
-		isOn = colliding
+	elif !GlobalCollectables.noclip and !(GlobalCollectables.fly and playerCollide):       #Button Logic
+			isOn = colliding
 	
 	
 	
@@ -36,6 +37,7 @@ func _process(delta):
 
 func _on_area_entered(area):
 	colliding = true
+	playerCollide = area.name == "Interaction Collider"
 
 func _on_area_exited(area):
 	colliding = false

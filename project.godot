@@ -39,6 +39,8 @@ console={
 2d_physics/layer_3="Checkpoint Collision"
 2d_physics/layer_4="Checkpoint Collision"
 2d_physics/layer_5="Interactable Collision"
+2d_physics/layer_6="Glitch_Collision"
+2d_physics/layer_7="Box_Collision"
 
 [rendering]
 
