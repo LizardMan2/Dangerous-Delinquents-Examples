@@ -119,7 +119,6 @@ inputs = [NodePath("../Button_Lever8")]
 
 [node name="Transition" parent="." instance=ExtResource("6_4avum")]
 position = Vector2(2784, 1440)
-goTo = "res://Levels/TestLevel.tscn"
 
 [node name="Collectable" parent="." instance=ExtResource("7_gaipp")]
 position = Vector2(544, -40)
